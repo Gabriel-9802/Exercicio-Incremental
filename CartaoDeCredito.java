@@ -1,9 +1,9 @@
 public class CartaoDeCredito {
-    public String numero;
-    public String nomeTitular;
-    public String cpfTitular;
-    public float limite;
-    public float saldo;
+    private String numero;
+    private String nomeTitular;
+    private String cpfTitular;
+    private float limite;
+    private float saldo;
 
     public CartaoDeCredito(String numero, String nomeTitular, String cpfTitular, float limite) {
         this.numero = numero;
@@ -13,17 +13,58 @@ public class CartaoDeCredito {
         this.saldo = limite;
     }
 
-    public float consultarSaldo() {
-        return saldo;
+    public String getNumero() {
+        return numero;
     }
 
-    public float consultarLimite() {
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public String getNomeTitular() {
+        return nomeTitular;
+    }
+
+    public void setNomeTitular(String nomeTitular) {
+        this.nomeTitular = nomeTitular;
+    }
+
+    public String getCpfTitular() {
+        return cpfTitular;
+    }
+
+    public void setCpfTitular(String cpfTitular) {
+        this.cpfTitular = cpfTitular;
+    }
+
+    public float getLimite() {
         return limite;
     }
 
+    public void setLimite(float limite) {
+        this.limite = limite;
+    }
+
+    public float getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(float saldo) {
+        this.saldo = saldo;
+    }
+
+    // Métodos usando Getters e Setters
+    public float consultarSaldo() {
+        return getSaldo();
+    }
+
+    public float consultarLimite() {
+        return getLimite();
+    }
+
     public boolean realizarTransacao(float valor) {
-        if (valor <= saldo) {
-            saldo -= valor;
+        if (valor <= getSaldo()) {
+            setSaldo(getSaldo() - valor);
             return true;
         } else {
             System.out.println("Saldo insuficiente.");
